@@ -276,18 +276,13 @@ namespace RealiteV
             if (mouseState.LeftButton == ButtonState.Released && turn == 1)
             {
                 turn = 0;
-                int xMax = 0, xMin, yMax = 0, yMin;
 
                 CreateTexture2D();
-
-             //   newTexture = CreateTexture(xMax - xMin, yMax - yMin, pixel => Color.Black);
 
                 NewobjPhys = GetBodyFromTexture(newTexture, worldFarseer, new Vector2(200,200));
                 NewobjPhys.BodyType = BodyType.Dynamic;
                 NewobjPhys.Mass = listoflistPixel[listoflistPixel.Count - 1].Count * 0.5f;
                 NewobjPhys.Restitution = 0.2f;
-                /*NewobjPhys.Restitution = restitutionPhys;
-                NewobjPhys.Friction = frictionPhys;*/
             }
 
         }
@@ -306,7 +301,7 @@ namespace RealiteV
             Color[] data = new Color[(width) * (height)];
             for (int i = 0; i < data.Length; i++)
             {
-                data[i] = new Color(Color.White, 0.0f);
+                data[i] = new Color(Color.Transparent,0f);
             }
             Color[] color = new Color[4];
 

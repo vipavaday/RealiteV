@@ -181,3 +181,44 @@ C:\Users\Cedric\Desktop\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventur
 C:\Users\Cedric\Desktop\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.Direct3D9.xml
 C:\Users\Cedric\Desktop\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\Content\FatFont.xnb
 C:\Users\Cedric\Desktop\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\Content\Gremlins.jpg
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\obj\x86\Debug\GremlinsAdventure.exe
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\obj\x86\Debug\GremlinsAdventure.pdb
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\obj\x86\Debug\GremlinsAdventure.csprojResolveAssemblyReference.cache
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\Content\Font.xnb
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\Content\crayon.png
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\Content\Gremlins.jpg
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\Content\ground.png
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\Content\rond_bleu.png
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\Content\rond_rouge.png
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\Content\vague.png
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\Content\vague2.png
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\Content\vague3.png
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\Content\vague4.png
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\Leap.dll
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\LeapCSharp.dll
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\GremlinsAdventure.exe
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\GremlinsAdventure.pdb
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\DebugView MonoGame.dll
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\FarseerPhysics MonoGame.dll
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\MonoGame.Framework.dll
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.MediaFoundation.dll
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.dll
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.XAudio2.dll
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.Direct3D11.dll
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.DXGI.dll
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.Direct2D1.dll
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.XInput.dll
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.RawInput.dll
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.Direct3D9.dll
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\DebugView MonoGame.pdb
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\FarseerPhysics MonoGame.pdb
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\MonoGame.Framework.xml
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.MediaFoundation.xml
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.xml
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.XAudio2.xml
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.Direct3D11.xml
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.DXGI.xml
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.Direct2D1.xml
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.XInput.xml
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.RawInput.xml
+C:\Users\Shad0kin\Desktop\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.Direct3D9.xml

@@ -62,7 +62,8 @@ namespace RealiteV
         Body NewobjPhys =null;
 
 
-        
+
+
 
         public Level()
         {
@@ -307,13 +308,14 @@ namespace RealiteV
             {
                 data[i] = new Color(Color.White, 0.0f);
             }
-            Color[] color = new Color[1];
+            Color[] color = new Color[4];
 
             lastListOfPixels.ForEach(t1x1 =>
             {
                 t1x1.Texture.GetData<Color>(color, 0, 1);
                 data[(int)(t1x1.Position.Y - YMin) * width + (int)(t1x1.Position.X - XMin)] = color[0];
             });
+            newTexture = new Texture2D(ScreenManager.Instance.GraphicDevice, width, height);
             newTexture.SetData(data);
         }
 

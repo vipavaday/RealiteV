@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SplashScreen>
+  <Image>
+    <Text>Gremlins Adventure</Text>
+    <Effects>FadeEffect</Effects>
+    <IsActive>true</IsActive>
+    <Alpha>1</Alpha>
+    <Position>
+      <X>720</X>
+      <Y>100</Y>
+    </Position>
+  <Scale>
+    <X>3</X>
+    <Y>3</Y>
+  </Scale>
+  </Image>
+ <Image2>
+    <Path>Gremlins</Path>
+    <Alpha>0.1</Alpha>
+    <Position>
+      <X>500</X>
+      <Y>200</Y>
+    </Position>
+  </Image2>
+</SplashScreen>

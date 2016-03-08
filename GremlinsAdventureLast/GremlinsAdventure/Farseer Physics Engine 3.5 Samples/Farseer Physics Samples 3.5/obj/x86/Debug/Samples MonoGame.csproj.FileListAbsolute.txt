@@ -1,0 +1,37 @@
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Font.xnb
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\SDL.dll
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Fonts\detailsFont.xnb
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Fonts\frameRateCounterFont.xnb
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Fonts\menufont.xnb
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Samples\alphabet.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Samples\car.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Samples\goo.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Samples\link.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Samples\object.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Samples\wheel.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Materials\blank.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Materials\dots.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Materials\pavement.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Materials\squares.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Materials\waves.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Common\arrow.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Common\buttons.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Common\cursor.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Common\gradient.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Common\logo.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Common\popup.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Common\slider.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Common\socket.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Content\Common\stick.png
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Samples MonoGame.exe
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Samples MonoGame.pdb
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\DebugView MonoGame.dll
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\FarseerPhysics MonoGame.dll
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\MonoGame.Framework.dll
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\Tao.Sdl.dll
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\OpenTK.dll
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\DebugView MonoGame.pdb
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\bin\WindowsGL\Debug\FarseerPhysics MonoGame.pdb
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\obj\x86\Debug\Samples MonoGame.csprojResolveAssemblyReference.cache
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\obj\x86\Debug\Samples MonoGame.exe
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics Samples 3.5\obj\x86\Debug\Samples MonoGame.pdb

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Menu>
+  <Axis>Y</Axis>
+  <Item>
+    <LinkType>Screen</LinkType>
+    <LinkID>GamePlayScreen</LinkID>
+    <Image>
+      <Text>New Game</Text>
+    </Image>
+  </Item>
+  <Item>
+    <Image>
+      <Text>Load Game</Text>
+    </Image>
+  </Item>
+  <Item>
+    <Image>
+      <Text>Option</Text>
+    </Image>
+  </Item>
+  <Item>
+    <Image>
+      <Text>Credits</Text>
+    </Image>
+  </Item>
+</Menu>

@@ -1,0 +1,20 @@
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\bin\WindowsGL\Release\Content\Font.xnb
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\bin\WindowsGL\Release\DebugView MonoGame.dll
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\bin\WindowsGL\Release\DebugView MonoGame.pdb
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\bin\WindowsGL\Release\FarseerPhysics MonoGame.dll
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\bin\WindowsGL\Release\MonoGame.Framework.dll
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\bin\WindowsGL\Release\OpenTK.dll
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\bin\WindowsGL\Release\FarseerPhysics MonoGame.pdb
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\obj\x86\Release\DebugView MonoGame.csprojResolveAssemblyReference.cache
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\obj\x86\Release\DebugView MonoGame.dll
+I:\Realite_Virtuelle\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\obj\x86\Release\DebugView MonoGame.pdb
+C:\Users\Cedric\Desktop\GremlinsAdventureLast\GremlinsAdventure\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\bin\WindowsGL\Release\Content\Font.xnb
+C:\Users\Cedric\Desktop\GremlinsAdventureLast\GremlinsAdventure\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\bin\WindowsGL\Release\DebugView MonoGame.dll
+C:\Users\Cedric\Desktop\GremlinsAdventureLast\GremlinsAdventure\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\bin\WindowsGL\Release\DebugView MonoGame.pdb
+C:\Users\Cedric\Desktop\GremlinsAdventureLast\GremlinsAdventure\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\bin\WindowsGL\Release\FarseerPhysics MonoGame.dll
+C:\Users\Cedric\Desktop\GremlinsAdventureLast\GremlinsAdventure\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\bin\WindowsGL\Release\MonoGame.Framework.dll
+C:\Users\Cedric\Desktop\GremlinsAdventureLast\GremlinsAdventure\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\bin\WindowsGL\Release\OpenTK.dll
+C:\Users\Cedric\Desktop\GremlinsAdventureLast\GremlinsAdventure\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\bin\WindowsGL\Release\FarseerPhysics MonoGame.pdb
+C:\Users\Cedric\Desktop\GremlinsAdventureLast\GremlinsAdventure\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\obj\x86\Release\DebugView MonoGame.csprojResolveAssemblyReference.cache
+C:\Users\Cedric\Desktop\GremlinsAdventureLast\GremlinsAdventure\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\obj\x86\Release\DebugView MonoGame.dll
+C:\Users\Cedric\Desktop\GremlinsAdventureLast\GremlinsAdventure\Farseer Physics Engine 3.5 Samples\Farseer Physics DebugView 3.5\obj\x86\Release\DebugView MonoGame.pdb

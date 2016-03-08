@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Level>
+  <gremlins1Tex>
+    <Path>rond_bleu</Path>
+  </gremlins1Tex>
+  <gremlins2Tex>
+    <Path>rond_rouge</Path>
+  </gremlins2Tex>
+  <plateformsTex>
+    <Path>ground</Path>
+  </plateformsTex>
+</Level>

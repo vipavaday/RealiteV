@@ -74,14 +74,5 @@ namespace RealiteV
 
             return BodyFactory.CreateCompoundPolygon(worldFarseer, contourListe, 1f, ConvertUnits.ToSimUnits(posDepart));
         }
-
-        protected Body GetNonConvexBodyFromTexture(Texture2D tex, World worldFarseer, Vector2 posDepart)
-        {
-            uint[] textureData = new uint[tex.Width * tex.Height];
-            tex.GetData(textureData);
-            List <Vertices> verts = PolygonTools.CreatePolygon(textureData, tex.Width, 0f,(byte)5,true,true);
-
-            return BodyFactory.CreateCompoundPolygon(worldFarseer, verts, 1f, ConvertUnits.ToSimUnits(posDepart));
-        }
     }
 }

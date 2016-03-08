@@ -124,7 +124,7 @@ namespace GremlinsGame
 
 
             var mouseState = Mouse.GetState();
-            this.mouseCoordinates = new Vector2(mouseState.X, mouseState.Y);
+            this.mouseCoordinates = new Vector2(mouseState.X, mouseState.Y-119);
           
             // TODO: Add your update logic here
             graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Victor/Source/Repos/RealiteV/GremlinsAdventureLast/GremlinsAdventure/GremlinsAdventure/Content/NewSpriteFont.spritefont</SourceFile>
-  <SourceTime>2016-03-08T18:19:15.565502+01:00</SourceTime>
-  <DestFile>C:/Users/Victor/Source/Repos/RealiteV/GremlinsAdventureLast/GremlinsAdventure/GremlinsAdventure/Content/bin/Windows/NewSpriteFont.xnb</DestFile>
-  <DestTime>2016-03-08T18:20:07.4491375+01:00</DestTime>
+  <SourceFile>C:/Users/Cedric/Desktop/VR/RealiteV/GremlinsAdventureLast/GremlinsAdventure/GremlinsAdventure/Content/NewSpriteFont.spritefont</SourceFile>
+  <SourceTime>2016-03-08T19:22:27.1776078+01:00</SourceTime>
+  <DestFile>C:/Users/Cedric/Desktop/VR/RealiteV/GremlinsAdventureLast/GremlinsAdventure/GremlinsAdventure/Content/bin/Windows/NewSpriteFont.xnb</DestFile>
+  <DestTime>2016-03-08T19:24:57.3447935+01:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2015-04-29T19:14:44+02:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

@@ -194,8 +194,9 @@ namespace RealiteV
                 {
                     listoflistPixel.Add(new List<Pixel>());
                     turn = 1;
-                }
-                if(listoflistPixel.Count > 0){
+                }/*
+                if(listoflistPixel.Count > 0)
+                {
                 if (listoflistPixel[listoflistPixel.Count - 1].Count > 0)
                 {
                    
@@ -264,6 +265,8 @@ namespace RealiteV
                     }
                 }
                 }
+
+                
                 exist = false;
                 foreach (Pixel p in listoflistPixel[listoflistPixel.Count - 1])
                 {
@@ -271,7 +274,105 @@ namespace RealiteV
                         exist = true;
                 }
                 if (!exist)
-                    listoflistPixel[listoflistPixel.Count - 1].Add(new Pixel(pixel, mouseCoordinates));
+                */
+                
+                
+                int oldPointX,oldPointY;
+                List<Pixel> currentlyList;
+                double directorVector, k, newPointY,newPointX;
+
+                if (listoflistPixel.Count > 0)
+                {
+                    currentlyList = listoflistPixel[listoflistPixel.Count - 1];
+                    if (currentlyList.Count > 0)
+                    {
+                        directorVector = (mouseCoordinates.X - currentlyList[currentlyList.Count -1].Position.X) / (mouseCoordinates.Y - currentlyList[currentlyList.Count - 1].Position.Y);
+                       
+                        if (mouseCoordinates.Y - currentlyList[currentlyList.Count - 1].Position.Y > 0)
+                        {
+                            k = currentlyList[currentlyList.Count - 1].Position.X - (directorVector * currentlyList[currentlyList.Count - 1].Position.Y);
+                            for (float y = currentlyList[currentlyList.Count - 1].Position.Y; y < mouseCoordinates.Y; --y)
+                            {
+                                y++;
+                                y = currentlyList[currentlyList.Count - 1].Position.Y + 0.1f;
+
+                                newPointX = ((directorVector * y)+ k);
+
+                                exist = false;/*
+                                foreach (Pixel p in currentlyList)
+                                {
+                                    if ((int)newPointX == (int)p.Position.X && (int)y == (int)p.Position.Y)
+                                        exist = true;
+                                }
+                                if (!exist)*/
+                                    currentlyList.Add(new Pixel(pixel, new Vector2((float)newPointX, y)));
+
+                            }
+
+                        }
+                        else if(mouseCoordinates.Y - currentlyList[currentlyList.Count - 1].Position.Y < 0)
+                        {
+                            k = currentlyList[currentlyList.Count - 1].Position.X - (directorVector * currentlyList[currentlyList.Count - 1].Position.Y);
+                            for (float y = currentlyList[currentlyList.Count - 1].Position.Y; y > mouseCoordinates.Y; ++y)
+                            {
+                                y--;
+                                y = currentlyList[currentlyList.Count - 1].Position.Y - 0.1f;
+
+                                newPointX = ((directorVector * y) + k);
+
+                                exist = false;/*
+                                foreach (Pixel p in currentlyList)
+                                {
+                                    if ((int)newPointX == (int)p.Position.X && (int)y == (int)p.Position.Y)
+                                        exist = true;
+                                }
+                                if (!exist)*/
+                                    currentlyList.Add(new Pixel(pixel, new Vector2((float)newPointX, y)));
+
+                            }
+                        }
+                        else if (mouseCoordinates.Y - currentlyList[currentlyList.Count - 1].Position.Y == 0) 
+                        {
+
+                            if (mouseCoordinates.X - currentlyList[currentlyList.Count - 1].Position.X > 0)
+                            for (float x = currentlyList[currentlyList.Count - 1].Position.X; x < mouseCoordinates.X; ++x)
+                            {
+                                exist = false;
+                                foreach (Pixel p in currentlyList)
+                                {
+                                    if ((int)x == (int)p.Position.X && (int)currentlyList[currentlyList.Count - 1].Position.Y == (int)p.Position.Y)
+                                        exist = true;
+                                }
+                                if (!exist)
+                                    currentlyList.Add(new Pixel(pixel, new Vector2(x, currentlyList[currentlyList.Count - 1].Position.Y)));
+
+                            }
+                            else
+                            {
+                                for (float x = currentlyList[currentlyList.Count - 1].Position.X; x > mouseCoordinates.X; --x)
+                                {
+                                    exist = false;
+                                    foreach (Pixel p in currentlyList)
+                                    {
+                                        if (x== p.Position.X && currentlyList[currentlyList.Count - 1].Position.Y == p.Position.Y)
+                                            exist = true;
+                                    }
+                                    if (!exist)
+                                        currentlyList.Add(new Pixel(pixel, new Vector2(x, currentlyList[currentlyList.Count - 1].Position.Y)));
+
+                                }
+                            }
+                        }
+
+
+
+                    }
+                }
+
+                
+                listoflistPixel[listoflistPixel.Count - 1].Add(new Pixel(pixel, mouseCoordinates));
+
+
             }
             if (mouseState.LeftButton == ButtonState.Released && turn == 1)
             {

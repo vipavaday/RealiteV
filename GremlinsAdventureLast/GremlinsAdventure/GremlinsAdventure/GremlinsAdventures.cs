@@ -39,12 +39,13 @@ namespace GremlinsGame
             
             this.controller = new Controller();
             this.controller.EnableGesture(Gesture.GestureType.TYPECIRCLE);
+            this.controller.EnableGesture(Gesture.GestureType.TYPE_SCREEN_TAP);
             ConvertUnits.SetDisplayUnitToSimUnitRatio(64f);
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
             graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
 //            worldFarseer = new World(new Vector2(0f, 9.82f));
-
+            controller.Config.SetFloat("Gesture.ScreenTap.MinDistance",10.0f);
         }
 
         /// <summary>

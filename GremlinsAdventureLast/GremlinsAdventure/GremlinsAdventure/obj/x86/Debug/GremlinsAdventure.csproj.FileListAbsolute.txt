@@ -278,8 +278,6 @@ C:\Users\Cedric\Desktop\VR\RealiteV\GremlinsAdventureLast\GremlinsAdventure\Grem
 C:\Users\Cedric\Desktop\VR\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\Content\vague2.png
 C:\Users\Cedric\Desktop\VR\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\Content\vague3.png
 C:\Users\Cedric\Desktop\VR\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\Content\vague4.png
-C:\Users\Cedric\Desktop\VR\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\Leap.dll
-C:\Users\Cedric\Desktop\VR\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\LeapCSharp.dll
 C:\Users\Cedric\Desktop\VR\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\GremlinsAdventure.exe
 C:\Users\Cedric\Desktop\VR\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\GremlinsAdventure.pdb
 C:\Users\Cedric\Desktop\VR\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\DebugView MonoGame.dll
@@ -306,3 +304,4 @@ C:\Users\Cedric\Desktop\VR\RealiteV\GremlinsAdventureLast\GremlinsAdventure\Grem
 C:\Users\Cedric\Desktop\VR\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.XInput.xml
 C:\Users\Cedric\Desktop\VR\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.RawInput.xml
 C:\Users\Cedric\Desktop\VR\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\SharpDX.Direct3D9.xml
+C:\Users\Cedric\Desktop\VR\RealiteV\GremlinsAdventureLast\GremlinsAdventure\GremlinsAdventure\LeapCSharp.NET4.0.dll

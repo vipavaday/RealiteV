@@ -60,7 +60,14 @@ namespace RealiteV
         Texture2D newTexture;
         [XmlIgnore]
         Body NewobjPhys =null;
-
+        [XmlIgnore]
+        float XMin, YMin;
+        [XmlIgnore]
+        private bool isDrawing = false;
+        [XmlIgnore]
+        int tap = 0;
+        [XmlIgnore]
+        private Dictionary<Texture2D,Body> textureObjet = new Dictionary<Texture2D,Body>();
 
 
 
@@ -155,22 +162,38 @@ namespace RealiteV
         {
 
             bool isCircle = false, exist = false;
+
             if (controller.IsConnected)
             {
                 Frame instantT = controller.Frame();
-                GestureList contentGestures = instantT.Gestures();
+                GestureList contentGestures;
+                contentGestures = instantT.Gestures();
+
                 HandList hands = instantT.Hands;
                 nbHands = hands.Count;
                 if (nbHands == 2)
                     leapHandler.IsTwoHands = true;
                 else leapHandler.IsTwoHands = false;
                 Finger doigt = hands.Rightmost.Fingers.Frontmost;
-               
-                    leapHandler.Position = LeapHandler.convertLeapUnits(new Vector2(doigt.StabilizedTipPosition.x, doigt.StabilizedTipPosition.y));
+
+                leapHandler.Position = LeapHandler.convertLeapUnits(new Vector2(doigt.StabilizedTipPosition.x, doigt.StabilizedTipPosition.y));
                 for (int i = 0; i < contentGestures.Count; i++)
                 {
                     if (contentGestures[i].Type == Gesture.GestureType.TYPECIRCLE && hands.Count == 2)
                         isCircle = true;
+                    if (contentGestures[i].Type == Gesture.GestureType.TYPE_SCREEN_TAP)
+                    {
+                        if (tap == 0)
+                        {
+                            isDrawing = true;
+                            tap = 1;
+                        }
+                        else
+                        {
+                            isDrawing = false;
+                            tap = 0;
+                        }
+                    }
                 }
             }
 
@@ -187,6 +210,9 @@ namespace RealiteV
 
             var mouseState = Mouse.GetState();
             this.mouseCoordinates = new Vector2(mouseState.X, mouseState.Y);
+            List<Pixel> currentlyList;
+           
+
 
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
@@ -194,7 +220,7 @@ namespace RealiteV
                 {
                     listoflistPixel.Add(new List<Pixel>());
                     turn = 1;
-                }/*
+                }
                 if(listoflistPixel.Count > 0)
                 {
                 if (listoflistPixel[listoflistPixel.Count - 1].Count > 0)
@@ -214,7 +240,6 @@ namespace RealiteV
                             if(!exist)
                                 listoflistPixel[listoflistPixel.Count - 1].Add(new Pixel(pixel, new Vector2(i,  listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count -1].Position.Y)));
                         }
-
                     }
                     else if ((mouseCoordinates.X -  listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count -1].Position.X) < -1)
                     {
@@ -231,7 +256,6 @@ namespace RealiteV
                                 listoflistPixel[listoflistPixel.Count - 1].Add(new Pixel(pixel, new Vector2(i,  listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count -1].Position.Y)));
                         }
                     }
-
                     if ((mouseCoordinates.Y -  listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count -1].Position.Y) > 1)
                     {
                         
@@ -246,7 +270,6 @@ namespace RealiteV
                             if (!exist)
                                 listoflistPixel[listoflistPixel.Count - 1].Add(new Pixel(pixel, new Vector2( listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count -1].Position.X, i)));
                         }
-
                     }
                     else if ((mouseCoordinates.Y -  listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count -1].Position.Y) < -1)
                     {
@@ -265,7 +288,6 @@ namespace RealiteV
                     }
                 }
                 }
-
                 
                 exist = false;
                 foreach (Pixel p in listoflistPixel[listoflistPixel.Count - 1])
@@ -274,87 +296,97 @@ namespace RealiteV
                         exist = true;
                 }
                 if (!exist)
-                */
-                
-                
-                int oldPointX,oldPointY;
-                List<Pixel> currentlyList;
-                double directorVector, k, newPointY,newPointX;
+                    listoflistPixel[listoflistPixel.Count - 1].Add(new Pixel(pixel, mouseCoordinates));
+
+                }
+            
+            /*if (isDrawing)
+            {
+                if (turn == 0)
+                {
+                    listoflistPixel.Add(new List<Pixel>());
+                    turn = 1;
+                }
+
+
+                int oldPointX, oldPointY;
+
+                double directorVector, k, newPointY, newPointX;
 
                 if (listoflistPixel.Count > 0)
                 {
                     currentlyList = listoflistPixel[listoflistPixel.Count - 1];
                     if (currentlyList.Count > 0)
                     {
-                        directorVector = (mouseCoordinates.X - currentlyList[currentlyList.Count -1].Position.X) / (mouseCoordinates.Y - currentlyList[currentlyList.Count - 1].Position.Y);
-                       
-                        if (mouseCoordinates.Y - currentlyList[currentlyList.Count - 1].Position.Y > 0)
+                        directorVector = (leapHandler.Position.X - currentlyList[currentlyList.Count - 1].Position.X) / (leapHandler.Position.Y - currentlyList[currentlyList.Count - 1].Position.Y);
+
+                        if (leapHandler.Position.Y - currentlyList[currentlyList.Count - 1].Position.Y > 0)
                         {
                             k = currentlyList[currentlyList.Count - 1].Position.X - (directorVector * currentlyList[currentlyList.Count - 1].Position.Y);
-                            for (float y = currentlyList[currentlyList.Count - 1].Position.Y; y < mouseCoordinates.Y; --y)
+                            for (float y = currentlyList[currentlyList.Count - 1].Position.Y; y < leapHandler.Position.Y; --y)
                             {
                                 y++;
                                 y = currentlyList[currentlyList.Count - 1].Position.Y + 0.1f;
 
-                                newPointX = ((directorVector * y)+ k);
+                                newPointX = ((directorVector * y) + k);
 
-                                exist = false;/*
-                                foreach (Pixel p in currentlyList)
+                                exist = false;
+                                /*foreach (Pixel p in currentlyList)
                                 {
                                     if ((int)newPointX == (int)p.Position.X && (int)y == (int)p.Position.Y)
                                         exist = true;
                                 }
-                                if (!exist)*/
+                                if (!exist)
                                     currentlyList.Add(new Pixel(pixel, new Vector2((float)newPointX, y)));
 
                             }
 
                         }
-                        else if(mouseCoordinates.Y - currentlyList[currentlyList.Count - 1].Position.Y < 0)
+                        else if (leapHandler.Position.Y - currentlyList[currentlyList.Count - 1].Position.Y < 0)
                         {
                             k = currentlyList[currentlyList.Count - 1].Position.X - (directorVector * currentlyList[currentlyList.Count - 1].Position.Y);
-                            for (float y = currentlyList[currentlyList.Count - 1].Position.Y; y > mouseCoordinates.Y; ++y)
+                            for (float y = currentlyList[currentlyList.Count - 1].Position.Y; y > leapHandler.Position.Y; ++y)
                             {
                                 y--;
                                 y = currentlyList[currentlyList.Count - 1].Position.Y - 0.1f;
 
                                 newPointX = ((directorVector * y) + k);
 
-                                exist = false;/*
+                                exist = false;
                                 foreach (Pixel p in currentlyList)
                                 {
                                     if ((int)newPointX == (int)p.Position.X && (int)y == (int)p.Position.Y)
                                         exist = true;
                                 }
-                                if (!exist)*/
-                                    currentlyList.Add(new Pixel(pixel, new Vector2((float)newPointX, y)));
+                                if (!exist)
+                                currentlyList.Add(new Pixel(pixel, new Vector2((float)newPointX, y)));
 
                             }
                         }
-                        else if (mouseCoordinates.Y - currentlyList[currentlyList.Count - 1].Position.Y == 0) 
+                        else if (leapHandler.Position.Y - currentlyList[currentlyList.Count - 1].Position.Y == 0)
                         {
 
-                            if (mouseCoordinates.X - currentlyList[currentlyList.Count - 1].Position.X > 0)
-                            for (float x = currentlyList[currentlyList.Count - 1].Position.X; x < mouseCoordinates.X; ++x)
-                            {
-                                exist = false;
-                                foreach (Pixel p in currentlyList)
-                                {
-                                    if ((int)x == (int)p.Position.X && (int)currentlyList[currentlyList.Count - 1].Position.Y == (int)p.Position.Y)
-                                        exist = true;
-                                }
-                                if (!exist)
-                                    currentlyList.Add(new Pixel(pixel, new Vector2(x, currentlyList[currentlyList.Count - 1].Position.Y)));
-
-                            }
-                            else
-                            {
-                                for (float x = currentlyList[currentlyList.Count - 1].Position.X; x > mouseCoordinates.X; --x)
+                            if (leapHandler.Position.X - currentlyList[currentlyList.Count - 1].Position.X > 0)
+                                for (float x = currentlyList[currentlyList.Count - 1].Position.X; x < leapHandler.Position.X; ++x)
                                 {
                                     exist = false;
                                     foreach (Pixel p in currentlyList)
                                     {
-                                        if (x== p.Position.X && currentlyList[currentlyList.Count - 1].Position.Y == p.Position.Y)
+                                        if ((int)x == (int)p.Position.X && (int)currentlyList[currentlyList.Count - 1].Position.Y == (int)p.Position.Y)
+                                            exist = true;
+                                    }
+                                    if (!exist)
+                                        currentlyList.Add(new Pixel(pixel, new Vector2(x, currentlyList[currentlyList.Count - 1].Position.Y)));
+
+                                }
+                            else
+                            {
+                                for (float x = currentlyList[currentlyList.Count - 1].Position.X; x > leapHandler.Position.X; --x)
+                                {
+                                    exist = false;
+                                    foreach (Pixel p in currentlyList)
+                                    {
+                                        if ((int)x == (int)p.Position.X && (int)currentlyList[currentlyList.Count - 1].Position.Y == (int)p.Position.Y)
                                             exist = true;
                                     }
                                     if (!exist)
@@ -369,32 +401,125 @@ namespace RealiteV
                     }
                 }
 
-                
-                listoflistPixel[listoflistPixel.Count - 1].Add(new Pixel(pixel, mouseCoordinates));
 
-
-            }
-            if (mouseState.LeftButton == ButtonState.Released && turn == 1)
-            {
-                turn = 0;
-
-                CreateTexture2D();
-
-                NewobjPhys = GetBodyFromTexture(newTexture, worldFarseer, new Vector2(200,200));
-                NewobjPhys.BodyType = BodyType.Dynamic;
-                NewobjPhys.Mass = listoflistPixel[listoflistPixel.Count - 1].Count * 0.5f;
-                NewobjPhys.Restitution = 0.2f;
+                listoflistPixel[listoflistPixel.Count - 1].Add(new Pixel(pixel, leapHandler.Position));
             }
 
+            */
+
+            Frame f = controller.Frame();
+            GestureList contentg;
+            contentg = f.Gestures();
+
+          
+                if (mouseState.LeftButton == ButtonState.Released && turn ==1)
+                {
+                    currentlyList = listoflistPixel[listoflistPixel.Count - 1];
+                    turn = 0;
+                    double directorVector = (currentlyList[0].Position.X - currentlyList[currentlyList.Count - 1].Position.X) / (currentlyList[0].Position.Y - currentlyList[currentlyList.Count - 1].Position.Y);
+                    double newPointX, newPointY, k;
+                    if (currentlyList[0].Position.Y - currentlyList[currentlyList.Count - 1].Position.Y > 0)
+                    {
+                        k = currentlyList[currentlyList.Count - 1].Position.X - (directorVector * currentlyList[currentlyList.Count - 1].Position.Y);
+                        for (float y = currentlyList[currentlyList.Count - 1].Position.Y; y < currentlyList[0].Position.Y; --y)
+                        {
+                            y++;
+                            y = currentlyList[currentlyList.Count - 1].Position.Y + 0.1f;
+
+                            newPointX = ((directorVector * y) + (int)k);
+
+                            exist = false;
+                            /*foreach (Pixel p in currentlyList)
+                            {
+                                if ((int)newPointX == (int)p.Position.X && (int)y == (int)p.Position.Y)
+                                    exist = true;
+                            }*/
+                            if (!exist)
+                                currentlyList.Add(new Pixel(pixel, new Vector2((float)newPointX, y)));
+
+                        }
+
+                    }
+                    else if ((currentlyList[0].Position.Y - currentlyList[currentlyList.Count - 1].Position.Y < 0))
+                    {
+                        k = currentlyList[currentlyList.Count - 1].Position.X - (directorVector * currentlyList[currentlyList.Count - 1].Position.Y);
+                        for (float y = currentlyList[currentlyList.Count - 1].Position.Y; y > currentlyList[0].Position.Y; ++y)
+                        {
+                            y--;
+                            y = currentlyList[currentlyList.Count - 1].Position.Y - 0.1f;
+
+                            newPointX = ((directorVector * y) + k);
+
+                            exist = false;/*
+                                        foreach (Pixel p in currentlyList)
+                                        {
+                                            if ((int)newPointX == (int)p.Position.X && (int)y == (int)p.Position.Y)
+                                                exist = true;
+                                        }
+                                        if (!exist)*/
+                            currentlyList.Add(new Pixel(pixel, new Vector2((float)newPointX, y)));
+
+                        }
+                    }
+                    else if (currentlyList[0].Position.Y - currentlyList[currentlyList.Count - 1].Position.Y == 0)
+                    {
+
+                        if (currentlyList[0].Position.X - currentlyList[currentlyList.Count - 1].Position.X > 0)
+                            for (float x = currentlyList[currentlyList.Count - 1].Position.X; x < currentlyList[0].Position.X; ++x)
+                            {
+                                exist = false;
+                                foreach (Pixel p in currentlyList)
+                                {
+                                    if ((int)x == (int)p.Position.X && (int)currentlyList[currentlyList.Count - 1].Position.Y == (int)p.Position.Y)
+                                        exist = true;
+                                }
+                                if (!exist)
+                                    currentlyList.Add(new Pixel(pixel, new Vector2(x, currentlyList[currentlyList.Count - 1].Position.Y)));
+
+                            }
+                        else
+                        {
+                            for (float x = currentlyList[currentlyList.Count - 1].Position.X; x > currentlyList[0].Position.X; --x)
+                            {
+                                exist = false;
+                                foreach (Pixel p in currentlyList)
+                                {
+                                    if ((int)x == (int)p.Position.X && (int)currentlyList[currentlyList.Count - 1].Position.Y == (int)p.Position.Y)
+                                        exist = true;
+                                }
+                                if (!exist)
+                                    currentlyList.Add(new Pixel(pixel, new Vector2(x, currentlyList[currentlyList.Count - 1].Position.Y)));
+
+                            }
+                        }
+                    }
+                    
+
+
+                    CreateTexture2D();
+
+                    int posX = (int)(listoflistPixel[listoflistPixel.Count - 1][0].Position.X - XMin);
+                    int posY = (int)(listoflistPixel[listoflistPixel.Count - 1][0].Position.Y - YMin);
+                    //if(posX <)
+                    NewobjPhys = GetBodyFromTexture(newTexture, worldFarseer, new Vector2(posX + XMin, posY + YMin));
+                    NewobjPhys.BodyType = BodyType.Dynamic;
+                    NewobjPhys.Mass = listoflistPixel[listoflistPixel.Count - 1].Count * 0.5f;
+                    NewobjPhys.Restitution = 0.0f;
+                    
+                    isDrawing = false;
+
+
+                    textureObjet.Add(newTexture, NewobjPhys);
+            }
         }
 
         private void CreateTexture2D()
         {
             var lastListOfPixels = listoflistPixel[listoflistPixel.Count - 1];
 
-            float XMin = lastListOfPixels.Min(p => p.Position.X);
+            XMin = lastListOfPixels.Min(p => p.Position.X);
             float XMax = lastListOfPixels.Max(p => p.Position.X);
-            float YMin = lastListOfPixels.Min(p => p.Position.Y);
+            YMin = lastListOfPixels.Min(p => p.Position.Y);
             float YMax = lastListOfPixels.Max(p => p.Position.Y);
 
             int width = (int)(XMax - XMin + 1);
@@ -413,6 +538,7 @@ namespace RealiteV
             });
             newTexture = new Texture2D(ScreenManager.Instance.GraphicDevice, width, height);
             newTexture.SetData(data);
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -431,27 +557,53 @@ namespace RealiteV
 
             if (listoflistPixel.Count > 0)
             {
-                foreach (List<Pixel> l in listoflistPixel)
+               /* foreach (List<Pixel> l in listoflistPixel)
                     foreach (Pixel p in l)
                     {
                         spriteBatch.Draw(p.Texture, p.Position);
+                    }*/
+                if (listoflistPixel[listoflistPixel.Count - 1].Count > 0)
+                {
+                    foreach (Pixel p in listoflistPixel[listoflistPixel.Count - 1])
+                    {
+                        spriteBatch.Draw(p.Texture, p.Position);
                     }
+                }
 
             }
 
-            if (NewobjPhys != null)
+            /*if (NewobjPhys != null)
             {
                 spriteBatch.Draw(newTexture, ConvertUnits.ToDisplayUnits(NewobjPhys.Position), null, Color.White, 0f, new Vector2(newTexture.Width / 2f, newTexture.Height / 2f), 1f, SpriteEffects.None, 0f);
         
+            }*/
+
+
+
+            foreach (KeyValuePair<Texture2D, Body> entry in textureObjet)
+            {
+                spriteBatch.Draw(entry.Key, ConvertUnits.ToDisplayUnits(entry.Value.Position), null, Color.White, 0f, new Vector2(entry.Key.Width / 2f, entry.Key.Height / 2f), 1f, SpriteEffects.None, 0f);
             }
+
+
         }
 
 
         protected Body GetBodyFromTexture(Texture2D tex, World worldFarseer, Vector2 posDepart)
         {
-            uint[] textureData = new uint[tex.Width * tex.Height];
+            int Height=tex.Height,Width=tex.Width;
+            if (tex.Height < 2)
+            {
+                Height = 2;
+            } 
+            if (tex.Width < 2)
+            {
+                Width = 2;
+            }
+            
+            uint[] textureData = new uint[Width * Height];
             tex.GetData(textureData);
-            Vertices verts = PolygonTools.CreatePolygon(textureData, tex.Width, false);
+            Vertices verts = PolygonTools.CreatePolygon(textureData, Width, false);
 
             Vector2 centroid = -verts.GetCentroid();
             verts.Translate(ref centroid);
@@ -464,7 +616,7 @@ namespace RealiteV
             {
                 vertices.Scale(ref vertScale);
             }
-
+            
             return BodyFactory.CreateCompoundPolygon(worldFarseer, contourListe, 1f, ConvertUnits.ToSimUnits(posDepart));
         }
 

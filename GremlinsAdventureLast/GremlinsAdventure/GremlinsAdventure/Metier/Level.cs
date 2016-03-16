@@ -68,7 +68,7 @@ namespace RealiteV
         int tap = 0;
         [XmlIgnore]
         private Dictionary<Texture2D,Body> textureObjet = new Dictionary<Texture2D,Body>();
-
+        private int nbGesture = 0;
 
 
 
@@ -96,14 +96,14 @@ namespace RealiteV
             Water wat1 = new Water(new Vector2(windowSize.X - 125, windowSize.Y - 40), worldFarseer, content);
             Water wat2 = new Water(new Vector2(windowSize.X - 302, windowSize.Y - 40), worldFarseer, content);
             Water wat3 = new Water(new Vector2(windowSize.X - 548, windowSize.Y - 40), worldFarseer, content);
-            Water wat4 = new Water(new Vector2(windowSize.X - 795, windowSize.Y - 40), worldFarseer, content);
+          //  Water wat4 = new Water(new Vector2(windowSize.X - 795, windowSize.Y - 40), worldFarseer, content);
             Plateform gnd2 = new Balance(worldFarseer, new Vector2(plateformsTex.Texture.Width + 2, windowSize.Y / 2), plateformsTex.Texture);
             this.contentManager = content;
             grem1 = new Gremlins("Guizmo", new Vector2(100, 0), gremlins1Tex.Texture, worldFarseer);
             grem2 = new Gremlins("Daffy", new Vector2(850, 0), gremlins2Tex.Texture, worldFarseer);
             isWinner = false;
             LoadContent();
-            Contenu.AddRange(new Component[] { gnd, gnd2, wat1, wat2, wat3, wat4 });
+            Contenu.AddRange(new Component[] { gnd, gnd2, wat1, wat2, wat3 });
             textureObjet = null;
             textureObjet = new Dictionary<Texture2D, Body>();
 
@@ -167,11 +167,12 @@ namespace RealiteV
         {
 
             bool isCircle = false, exist = false;
-
+            Frame instantT;
+            GestureList contentGestures = null;
+            
             if (controller.IsConnected)
             {
-                Frame instantT = controller.Frame();
-                GestureList contentGestures;
+                instantT = controller.Frame();
                 contentGestures = instantT.Gestures();
 
                 HandList hands = instantT.Hands;
@@ -191,12 +192,13 @@ namespace RealiteV
                         if (tap == 0)
                         {
                             isDrawing = true;
-                            
                             tap = 1;
+                            nbGesture++;
                         }
                         else
                         {
                             isDrawing = false;
+                            nbGesture++;
                             tap = 0;
                         }
                     }
@@ -208,7 +210,7 @@ namespace RealiteV
             if (keyboardState.IsKeyDown(Keys.Space) || isCircle)
             {
                 worldFarseer.Clear();
-                GetLevelDefaultConfig(new Vector2(1600, 850), contentManager);
+                GetLevelDefaultConfig(new Vector2(1280, 720), contentManager);
             }
             UpdateRotationState();
 
@@ -506,21 +508,11 @@ namespace RealiteV
                 listoflistPixel[listoflistPixel.Count - 1].Add(new Pixel(pixel, leapHandler.Position));
             }*/
 
+
             
+           
 
-            Frame f = controller.Frame();
-            GestureList contentg;
-            contentg = f.Gestures();
-            int nbGesture=0;
-            for (int i = 0; i < contentg.Count; i++)
-            {
-                 if(contentg[i].Type == Gesture.GestureType.TYPE_SCREEN_TAP){
-                     nbGesture++;
-                 }
-            }
-            nbGesture=nbGesture%2;
-
-                if (nbGesture==0 && turn==1)
+                if (nbGesture==2 && turn==1)
                 {
                     currentlyList = listoflistPixel[listoflistPixel.Count - 1];
                     turn = 0;
@@ -558,13 +550,13 @@ namespace RealiteV
 
                             newPointX = ((directorVector * y) + k);
 
-                            exist = false;/*
+                            exist = false;
                                         foreach (Pixel p in currentlyList)
                                         {
                                             if ((int)newPointX == (int)p.Position.X && (int)y == (int)p.Position.Y)
                                                 exist = true;
                                         }
-                                        if (!exist)*/
+                                        if (!exist)
                             currentlyList.Add(new Pixel(pixel, new Vector2((float)newPointX, y)));
 
                         }
@@ -575,12 +567,12 @@ namespace RealiteV
                         if (currentlyList[0].Position.X - currentlyList[currentlyList.Count - 1].Position.X > 0)
                             for (float x = currentlyList[currentlyList.Count - 1].Position.X; x < currentlyList[0].Position.X; ++x)
                             {
-                                exist = false;/*
+                                exist = false;
                                 foreach (Pixel p in currentlyList)
                                 {
                                     if ((int)x == (int)p.Position.X && (int)currentlyList[currentlyList.Count - 1].Position.Y == (int)p.Position.Y)
                                         exist = true;
-                                }*/
+                                }
                                 if (!exist)
                                     currentlyList.Add(new Pixel(pixel, new Vector2(x, currentlyList[currentlyList.Count - 1].Position.Y)));
 
@@ -589,12 +581,12 @@ namespace RealiteV
                         {
                             for (float x = currentlyList[currentlyList.Count - 1].Position.X; x > currentlyList[0].Position.X; --x)
                             {
-                                exist = false;/*
+                                exist = false;
                                 foreach (Pixel p in currentlyList)
                                 {
                                     if ((int)x == (int)p.Position.X && (int)currentlyList[currentlyList.Count - 1].Position.Y == (int)p.Position.Y)
                                         exist = true;
-                                }*/
+                                }
                                 if (!exist)
                                     currentlyList.Add(new Pixel(pixel, new Vector2(x, currentlyList[currentlyList.Count - 1].Position.Y)));
 
@@ -618,6 +610,7 @@ namespace RealiteV
 
 
                     textureObjet.Add(newTexture, NewobjPhys);
+                    nbGesture = 0;
             }
         }
 

@@ -84,7 +84,7 @@ namespace GremlinsAdventure.Menu
         public ScreenManager()
         {
             
-            Dimensions = new Vector2(1600, 850);
+            Dimensions = new Vector2(1280, 720);
             currentScreen = new SplashScreen();
             xmlGameScreenManager = new XmlManager<GameScreen>();
             xmlGameScreenManager.Type = currentScreen.Type;

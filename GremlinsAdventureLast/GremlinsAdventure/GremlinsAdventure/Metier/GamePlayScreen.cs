@@ -31,7 +31,7 @@ namespace GremlinsAdventure.Metier
             Level.plateformsTex.Texture = tex3;
 
 
-            Level.GetLevelDefaultConfig(new Vector2(1600, 850),this.content);
+            Level.GetLevelDefaultConfig(new Vector2(1280, 720),this.content);
         }
 
         public override void UnloadContent()

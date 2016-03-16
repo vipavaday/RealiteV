@@ -45,7 +45,7 @@ namespace GremlinsAdventure.LeapMotion
 
         public static Vector2 convertLeapUnits(Vector2 pos)
         {
-            float xApp =3000 * pos.X / 400 + 700;
+            float xApp =3000 * pos.X / 400 + 1000;
             float yApp = 2500 * pos.Y / 1000 + 2500;
 
             return new Vector2(xApp, 1800 - pos.Y * 5);

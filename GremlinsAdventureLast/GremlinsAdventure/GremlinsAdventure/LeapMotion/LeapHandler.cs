@@ -25,22 +25,22 @@ namespace GremlinsAdventure.LeapMotion
             {
                 position.X = value.X;
                 position.Y = value.Y;
-                objPhys.Position =ConvertUnits.ToSimUnits(position);
+               /// objPhys.Position =ConvertUnits.ToSimUnits(position);
             }
         }
 
         public LeapHandler(ContentManager contentManager,World worldFarseer)
         {
             position = new Vector2(0, 0);
-            Texture = contentManager.Load<Texture2D>("crayon");
-            objPhys = GetBodyFromTexture(Texture, worldFarseer, Position);
+           Texture = contentManager.Load<Texture2D>("crayon");
+           // objPhys = GetBodyFromTexture(Texture, worldFarseer, Position);
             IsTwoHands = false;
         }
 
         public override void  DrawAnimation(SpriteBatch spriteBatch)
         {
             if(!IsTwoHands)
-                spriteBatch.Draw(Texture,ConvertUnits.ToDisplayUnits(objPhys.Position), null, Color.White, 0, new Vector2(Texture.Width / 2f, Texture.Height / 2f), 1f, SpriteEffects.None, 0f);
+                spriteBatch.Draw(Texture,Position, null, Color.White, 0, new Vector2(Texture.Width / 2f, Texture.Height / 2f), 1f, SpriteEffects.None, 0f);
         }
 
         public static Vector2 convertLeapUnits(Vector2 pos)
@@ -53,9 +53,9 @@ namespace GremlinsAdventure.LeapMotion
 
         protected override void SetBodyPhys()
         {
-            if (objPhys == null)
-                throw new Exception("L'objet physique du leaphandler est null.");
-            InitBodyFeatures();
+           // if (objPhys == null)
+            //    throw new Exception("L'objet physique du leaphandler est null.");
+            //InitBodyFeatures();
         }
 
         protected override void InitBodyFeatures()

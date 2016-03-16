@@ -104,6 +104,11 @@ namespace RealiteV
             isWinner = false;
             LoadContent();
             Contenu.AddRange(new Component[] { gnd, gnd2, wat1, wat2, wat3, wat4 });
+            textureObjet = null;
+            textureObjet = new Dictionary<Texture2D, Body>();
+
+           // controller.Config.SetFloat("Gesture.ScreenTap.MinDistance", 10.0f);
+            //controller.Config.SetFloat("Gesture.ScreenTap.MinForwardVelocity", 20.0f);
         }
 
         private void drawAnimationGremlins(SpriteBatch spriteBatch)
@@ -186,6 +191,7 @@ namespace RealiteV
                         if (tap == 0)
                         {
                             isDrawing = true;
+                            
                             tap = 1;
                         }
                         else
@@ -212,7 +218,7 @@ namespace RealiteV
             this.mouseCoordinates = new Vector2(mouseState.X, mouseState.Y);
             List<Pixel> currentlyList;
            
-
+            /*
 
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
@@ -299,8 +305,103 @@ namespace RealiteV
                     listoflistPixel[listoflistPixel.Count - 1].Add(new Pixel(pixel, mouseCoordinates));
 
                 }
+             * 
+             * */
             
-            /*if (isDrawing)
+
+
+
+            
+            if (isDrawing)
+            {
+                if (turn == 0)
+                {
+                    listoflistPixel.Add(new List<Pixel>());
+                    turn = 1;
+                }
+                if(listoflistPixel.Count > 0)
+                {
+                if (listoflistPixel[listoflistPixel.Count - 1].Count > 0)
+                {
+                   
+                    if ((leapHandler.Position.X- listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count -1].Position.X) > 1)
+                    {
+                        
+                        for (int i = (int) listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count -1].Position.X; i < leapHandler.Position.X; ++i)
+                        {
+                            exist = false;
+                            foreach (Pixel p in listoflistPixel[listoflistPixel.Count - 1])
+                            {
+                                if (i == p.Position.X && listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count - 1].Position.Y == p.Position.Y)
+                                    exist = true;
+                            }
+                            if(!exist)
+                                listoflistPixel[listoflistPixel.Count - 1].Add(new Pixel(pixel, new Vector2(i,  listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count -1].Position.Y)));
+                        }
+                    }
+                    else if ((leapHandler.Position.X-  listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count -1].Position.X) < -1)
+                    {
+
+                        for (int i = (int)listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count - 1].Position.X; i > leapHandler.Position.X; --i)
+                        {
+                            exist = false;
+                            foreach (Pixel p in listoflistPixel[listoflistPixel.Count - 1])
+                            {
+                                if (i == p.Position.X && listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count - 1].Position.Y == p.Position.Y)
+                                    exist = true;
+                            }
+                            if (!exist)
+                                listoflistPixel[listoflistPixel.Count - 1].Add(new Pixel(pixel, new Vector2(i,  listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count -1].Position.Y)));
+                        }
+                    }
+                    if ((leapHandler.Position.Y -  listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count -1].Position.Y) > 1)
+                    {
+                        
+                        for (int i = (int) listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count -1].Position.Y; i < leapHandler.Position.Y; ++i)
+                        {
+                            exist = false;
+                            foreach (Pixel p in listoflistPixel[listoflistPixel.Count - 1])
+                            {
+                                if (i == p.Position.Y && listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count - 1].Position.X == p.Position.X)
+                                    exist = true;
+                            }
+                            if (!exist)
+                                listoflistPixel[listoflistPixel.Count - 1].Add(new Pixel(pixel, new Vector2( listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count -1].Position.X, i)));
+                        }
+                    }
+                    else if ((leapHandler.Position.Y -  listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count -1].Position.Y) < -1)
+                    {
+                       
+                        for (int i = (int) listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count -1].Position.Y; i > leapHandler.Position.Y; --i)
+                        {
+                            exist = false;
+                            foreach (Pixel p in listoflistPixel[listoflistPixel.Count - 1])
+                            {
+                                if (i == p.Position.Y && listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count - 1].Position.X == p.Position.X)
+                                    exist = true;
+                            }
+                            if (!exist)
+                                listoflistPixel[listoflistPixel.Count - 1].Add(new Pixel(pixel, new Vector2( listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count -1].Position.X, i)));
+                        }
+                    }
+                }
+                }
+                
+                exist = false;
+                foreach (Pixel p in listoflistPixel[listoflistPixel.Count - 1])
+                {
+                    if (leapHandler.Position.Y == p.Position.Y && leapHandler.Position.X== p.Position.X)
+                        exist = true;
+                }
+                if (!exist)
+                    listoflistPixel[listoflistPixel.Count - 1].Add(new Pixel(pixel, leapHandler.Position));
+
+                }
+
+
+
+            /*
+            if (isDrawing)
             {
                 if (turn == 0)
                 {
@@ -330,8 +431,8 @@ namespace RealiteV
 
                                 newPointX = ((directorVector * y) + k);
 
-                                exist = false;
-                                /*foreach (Pixel p in currentlyList)
+                                exist = false;/*
+                                foreach (Pixel p in currentlyList)
                                 {
                                     if ((int)newPointX == (int)p.Position.X && (int)y == (int)p.Position.Y)
                                         exist = true;
@@ -352,7 +453,7 @@ namespace RealiteV
 
                                 newPointX = ((directorVector * y) + k);
 
-                                exist = false;
+                                exist = false;/*
                                 foreach (Pixel p in currentlyList)
                                 {
                                     if ((int)newPointX == (int)p.Position.X && (int)y == (int)p.Position.Y)
@@ -369,7 +470,7 @@ namespace RealiteV
                             if (leapHandler.Position.X - currentlyList[currentlyList.Count - 1].Position.X > 0)
                                 for (float x = currentlyList[currentlyList.Count - 1].Position.X; x < leapHandler.Position.X; ++x)
                                 {
-                                    exist = false;
+                                    exist = false;/*
                                     foreach (Pixel p in currentlyList)
                                     {
                                         if ((int)x == (int)p.Position.X && (int)currentlyList[currentlyList.Count - 1].Position.Y == (int)p.Position.Y)
@@ -383,7 +484,7 @@ namespace RealiteV
                             {
                                 for (float x = currentlyList[currentlyList.Count - 1].Position.X; x > leapHandler.Position.X; --x)
                                 {
-                                    exist = false;
+                                    exist = false;/*
                                     foreach (Pixel p in currentlyList)
                                     {
                                         if ((int)x == (int)p.Position.X && (int)currentlyList[currentlyList.Count - 1].Position.Y == (int)p.Position.Y)
@@ -403,16 +504,23 @@ namespace RealiteV
 
 
                 listoflistPixel[listoflistPixel.Count - 1].Add(new Pixel(pixel, leapHandler.Position));
-            }
+            }*/
 
-            */
+            
 
             Frame f = controller.Frame();
             GestureList contentg;
             contentg = f.Gestures();
+            int nbGesture=0;
+            for (int i = 0; i < contentg.Count; i++)
+            {
+                 if(contentg[i].Type == Gesture.GestureType.TYPE_SCREEN_TAP){
+                     nbGesture++;
+                 }
+            }
+            nbGesture=nbGesture%2;
 
-          
-                if (mouseState.LeftButton == ButtonState.Released && turn ==1)
+                if (nbGesture==0 && turn==1)
                 {
                     currentlyList = listoflistPixel[listoflistPixel.Count - 1];
                     turn = 0;
@@ -428,8 +536,8 @@ namespace RealiteV
 
                             newPointX = ((directorVector * y) + (int)k);
 
-                            exist = false;
-                            /*foreach (Pixel p in currentlyList)
+                            exist = false;/*
+                            foreach (Pixel p in currentlyList)
                             {
                                 if ((int)newPointX == (int)p.Position.X && (int)y == (int)p.Position.Y)
                                     exist = true;
@@ -467,12 +575,12 @@ namespace RealiteV
                         if (currentlyList[0].Position.X - currentlyList[currentlyList.Count - 1].Position.X > 0)
                             for (float x = currentlyList[currentlyList.Count - 1].Position.X; x < currentlyList[0].Position.X; ++x)
                             {
-                                exist = false;
+                                exist = false;/*
                                 foreach (Pixel p in currentlyList)
                                 {
                                     if ((int)x == (int)p.Position.X && (int)currentlyList[currentlyList.Count - 1].Position.Y == (int)p.Position.Y)
                                         exist = true;
-                                }
+                                }*/
                                 if (!exist)
                                     currentlyList.Add(new Pixel(pixel, new Vector2(x, currentlyList[currentlyList.Count - 1].Position.Y)));
 
@@ -481,12 +589,12 @@ namespace RealiteV
                         {
                             for (float x = currentlyList[currentlyList.Count - 1].Position.X; x > currentlyList[0].Position.X; --x)
                             {
-                                exist = false;
+                                exist = false;/*
                                 foreach (Pixel p in currentlyList)
                                 {
                                     if ((int)x == (int)p.Position.X && (int)currentlyList[currentlyList.Count - 1].Position.Y == (int)p.Position.Y)
                                         exist = true;
-                                }
+                                }*/
                                 if (!exist)
                                     currentlyList.Add(new Pixel(pixel, new Vector2(x, currentlyList[currentlyList.Count - 1].Position.Y)));
 
@@ -538,7 +646,6 @@ namespace RealiteV
             });
             newTexture = new Texture2D(ScreenManager.Instance.GraphicDevice, width, height);
             newTexture.SetData(data);
-
         }
 
         public void Draw(SpriteBatch spriteBatch)

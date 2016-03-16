@@ -60,7 +60,7 @@ namespace RealiteV
             Vector2 centroid = -verts.GetCentroid();
             verts.Translate(ref centroid);
             _origin = -centroid;
-            //verts = SimplifyTools.ReduceByDistance(verts, 4f);
+            verts = SimplifyTools.ReduceByDistance(verts, 5f);
             if (verts.CheckPolygon() != PolygonError.NoError)
             {
                 Console.WriteLine("Pb avec les vertices pour les collisions.");

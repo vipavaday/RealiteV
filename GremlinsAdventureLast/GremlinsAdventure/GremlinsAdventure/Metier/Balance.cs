@@ -18,7 +18,7 @@ namespace GremlinsAdventure.Metier
         public Balance(World worldFarseer, Vector2 posDepart, Texture2D tex) : base(worldFarseer, posDepart, tex)
         {
             objPhys.IsStatic = false;
-            objPhys.BodyType = BodyType.Dynamic;
+            objPhys.BodyType = BodyType.Static;
             objPhys.AngularDamping = 0.8f;
             objPhys.Inertia = 2;
             Body rotor = BodyFactory.CreateCircle(worldFarseer, 0.1f, 3f);

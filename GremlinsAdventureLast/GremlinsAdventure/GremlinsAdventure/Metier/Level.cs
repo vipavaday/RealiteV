@@ -101,7 +101,7 @@ namespace RealiteV
             Plateform gnd2 = new Balance(worldFarseer, new Vector2(plateformsTex.Texture.Width + 2, windowSize.Y / 2), plateformsTex.Texture);
             this.contentManager = content;
             grem1 = new Gremlins("Guizmo", new Vector2(100, 0), gremlins1Tex.Texture, worldFarseer);
-            grem2 = new Gremlins("Daffy", new Vector2(850, 0), gremlins2Tex.Texture, worldFarseer);
+            grem2 = new Gremlins("Daffy", new Vector2(780, 0), gremlins2Tex.Texture, worldFarseer);
             isWinner = false;
             isDrawing = false;
             LoadContent();
@@ -109,6 +109,8 @@ namespace RealiteV
             textureObjet = null;
             textureObjet = new Dictionary<Texture2D, Body>();
 
+            if (listoflistPixel.Count >0)
+            listoflistPixel[listoflistPixel.Count - 1] = null;
            // controller.Config.SetFloat("Gesture.ScreenTap.MinDistance", 10.0f);
             //controller.Config.SetFloat("Gesture.ScreenTap.MinForwardVelocity", 20.0f);
         }
@@ -133,6 +135,10 @@ namespace RealiteV
         {
             for(int i=0;i<Contenu.Count;i++)
                 Contenu[i].SetRotation(Contenu[i].GetRotation());
+            foreach (KeyValuePair<Texture2D, Body> kp in textureObjet)
+            {
+                
+            }
         }
 
         public void LoadContent()
@@ -400,7 +406,7 @@ namespace RealiteV
                 if (!exist)
                     listoflistPixel[listoflistPixel.Count - 1].Add(new Pixel(pixel, leapHandler.Position));
 
-                }
+          }
 
 
 
@@ -610,11 +616,12 @@ namespace RealiteV
                     
                     isDrawing = false;
 
-                   // listoflistPixel[listoflistPixel.Count - 1] = null;
                     textureObjet.Add(newTexture, NewobjPhys);
                     nbGesture = 0;
                     grem1.getBodyPhys().BodyType = BodyType.Dynamic;
                     grem2.getBodyPhys().BodyType = BodyType.Dynamic;
+
+                    listoflistPixel[listoflistPixel.Count - 1] = null;
 
             }
         }
@@ -667,13 +674,14 @@ namespace RealiteV
                     {
                         spriteBatch.Draw(p.Texture, p.Position);
                     }*/
-                if (listoflistPixel[listoflistPixel.Count - 1].Count > 0)
-                {
-                    foreach (Pixel p in listoflistPixel[listoflistPixel.Count - 1])
+                if (listoflistPixel[listoflistPixel.Count - 1] != null)
+                    if (listoflistPixel[listoflistPixel.Count - 1].Count > 0)
                     {
-                        spriteBatch.Draw(p.Texture, p.Position);
+                        foreach (Pixel p in listoflistPixel[listoflistPixel.Count - 1])
+                        {
+                            spriteBatch.Draw(p.Texture, p.Position);
+                        }
                     }
-                }
 
             }
 
@@ -684,10 +692,10 @@ namespace RealiteV
             }*/
 
 
-
+            
             foreach (KeyValuePair<Texture2D, Body> entry in textureObjet)
             {
-                spriteBatch.Draw(entry.Key, ConvertUnits.ToDisplayUnits(entry.Value.Position), null, Color.White, 0f, new Vector2(entry.Key.Width / 2f, entry.Key.Height / 2f), 1f, SpriteEffects.None, 0f);
+                spriteBatch.Draw(entry.Key, ConvertUnits.ToDisplayUnits(entry.Value.Position), null, Color.White,entry.Value.Rotation , new Vector2(entry.Key.Width / 2f, entry.Key.Height / 2f), 1f, SpriteEffects.None, 0f);
             }
 
 

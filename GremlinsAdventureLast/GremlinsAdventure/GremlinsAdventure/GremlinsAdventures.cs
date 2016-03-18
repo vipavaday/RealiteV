@@ -45,6 +45,8 @@ namespace GremlinsGame
             graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
             graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
 //            worldFarseer = new World(new Vector2(0f, 9.82f));
+            controller.Config.SetFloat("Gesture.ScreenTap.MinDistance",10.0f);
+            controller.Config.SetFloat("Gesture.ScreenTap.MinForwardVelocity", 20.0f);
         }
 
         /// <summary>

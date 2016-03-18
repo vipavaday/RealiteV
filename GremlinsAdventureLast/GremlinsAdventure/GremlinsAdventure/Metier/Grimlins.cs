@@ -13,7 +13,7 @@ namespace RealiteV
 {
     public class Gremlins : Component
     {
-        static readonly BodyType typePhys = BodyType.Dynamic;
+        public BodyType typePhys { get; set; }
         static readonly float restitutionPhys = 0.1f;
         static readonly float frictionPhys = 0.5f;
 
@@ -27,6 +27,7 @@ namespace RealiteV
             Nom = nom;
             Texture = tex;
             objPhys = BodyFactory.CreateCircle(worldFarseer, ConvertUnits.ToSimUnits(Texture.Width/ 2f), 1f, ConvertUnits.ToSimUnits(posDepart));
+            typePhys = BodyType.Static;
             SetBodyPhys();
             this.posDepart = posDepart;
         }

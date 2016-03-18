@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.Linq;
+using FarseerPhysics.Common.PolygonManipulation;
 
 namespace RealiteV
 {
@@ -102,6 +103,7 @@ namespace RealiteV
             grem1 = new Gremlins("Guizmo", new Vector2(100, 0), gremlins1Tex.Texture, worldFarseer);
             grem2 = new Gremlins("Daffy", new Vector2(850, 0), gremlins2Tex.Texture, worldFarseer);
             isWinner = false;
+            isDrawing = false;
             LoadContent();
             Contenu.AddRange(new Component[] { gnd, gnd2, wat1, wat2, wat3 });
             textureObjet = null;
@@ -361,13 +363,13 @@ namespace RealiteV
                         
                         for (int i = (int) listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count -1].Position.Y; i < leapHandler.Position.Y; ++i)
                         {
-                            exist = false;
+                            exist = false;/*
                             foreach (Pixel p in listoflistPixel[listoflistPixel.Count - 1])
                             {
                                 if (i == p.Position.Y && listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count - 1].Position.X == p.Position.X)
                                     exist = true;
                             }
-                            if (!exist)
+                            if (!exist)*/
                                 listoflistPixel[listoflistPixel.Count - 1].Add(new Pixel(pixel, new Vector2( listoflistPixel[listoflistPixel.Count - 1][listoflistPixel[listoflistPixel.Count - 1].Count -1].Position.X, i)));
                         }
                     }
@@ -550,13 +552,13 @@ namespace RealiteV
 
                             newPointX = ((directorVector * y) + k);
 
-                            exist = false;
+                            exist = false;/*
                                         foreach (Pixel p in currentlyList)
                                         {
                                             if ((int)newPointX == (int)p.Position.X && (int)y == (int)p.Position.Y)
                                                 exist = true;
                                         }
-                                        if (!exist)
+                                        if (!exist)*/
                             currentlyList.Add(new Pixel(pixel, new Vector2((float)newPointX, y)));
 
                         }
@@ -567,13 +569,13 @@ namespace RealiteV
                         if (currentlyList[0].Position.X - currentlyList[currentlyList.Count - 1].Position.X > 0)
                             for (float x = currentlyList[currentlyList.Count - 1].Position.X; x < currentlyList[0].Position.X; ++x)
                             {
-                                exist = false;
+                                exist = false;/*
                                 foreach (Pixel p in currentlyList)
                                 {
                                     if ((int)x == (int)p.Position.X && (int)currentlyList[currentlyList.Count - 1].Position.Y == (int)p.Position.Y)
                                         exist = true;
                                 }
-                                if (!exist)
+                                if (!exist)*/
                                     currentlyList.Add(new Pixel(pixel, new Vector2(x, currentlyList[currentlyList.Count - 1].Position.Y)));
 
                             }
@@ -581,13 +583,13 @@ namespace RealiteV
                         {
                             for (float x = currentlyList[currentlyList.Count - 1].Position.X; x > currentlyList[0].Position.X; --x)
                             {
-                                exist = false;
+                                exist = false;/*
                                 foreach (Pixel p in currentlyList)
                                 {
                                     if ((int)x == (int)p.Position.X && (int)currentlyList[currentlyList.Count - 1].Position.Y == (int)p.Position.Y)
                                         exist = true;
                                 }
-                                if (!exist)
+                                if (!exist)*/
                                     currentlyList.Add(new Pixel(pixel, new Vector2(x, currentlyList[currentlyList.Count - 1].Position.Y)));
 
                             }
@@ -608,9 +610,12 @@ namespace RealiteV
                     
                     isDrawing = false;
 
-
+                   // listoflistPixel[listoflistPixel.Count - 1] = null;
                     textureObjet.Add(newTexture, NewobjPhys);
                     nbGesture = 0;
+                    grem1.getBodyPhys().BodyType = BodyType.Dynamic;
+                    grem2.getBodyPhys().BodyType = BodyType.Dynamic;
+
             }
         }
 
@@ -708,7 +713,9 @@ namespace RealiteV
             Vector2 centroid = -verts.GetCentroid();
             verts.Translate(ref centroid);
             Vector2 _origin = -centroid;
-            //verts = SimplifyTools.ReduceByDistance(verts, 4f);
+            verts = SimplifyTools.ReduceByDistance(verts, 10f);
+            //verts = SimplifyTools.MergeIdenticalPoints(verts);
+            //verts = SimplifyTools.MergeParallelEdges(verts, 0.05f);
 
             List<Vertices> contourListe = Triangulate.ConvexPartition(verts, TriangulationAlgorithm.Flipcode);
             Vector2 vertScale = new Vector2(ConvertUnits.ToSimUnits(1));
